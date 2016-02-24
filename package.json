@@ -1,0 +1,21 @@
+{
+  "name": "ajax-twitter",
+  "version": "0.1.0",
+  "description": "A plugin to work in cooperation with a theme, such that the theme is able to pull in \r recent tweets via a simple ajax call. The theme js can then mark it up as required.",
+  "dependencies": {
+    "twitter-text": "^1.13.3"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "gulp clean",
+    "build": "gulp build"
+  },
+  "author": "Jason Crosse",
+  "license": "GPL-3.0"
+}
