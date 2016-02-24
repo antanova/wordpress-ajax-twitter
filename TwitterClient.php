@@ -13,9 +13,9 @@ class TwitterClient
     /**
      * Get a user's tweets
      * 
-     * @param  string $user   [[Description]]
-     * @param  integer $count [[Description]]
-     * @return array|wp_Error [[Description]]
+     * @param  string $user   username for the timeline 
+     * @param  integer $count number of tweets to retrieve
+     * @return array|wp_Error 
      */
     public function getUserStatuses($user, $count)
     {
@@ -29,6 +29,11 @@ class TwitterClient
         return $request;
     }
     
+    /**
+     * Insert the bearer token into the request headers
+     * 
+     * @param  string  $bearer_token
+     */
     public function setBearerToken($bearer_token)
     {
         $this->bearer_token = $bearer_token;

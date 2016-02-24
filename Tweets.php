@@ -33,14 +33,10 @@ class Tweets
             // get a token
             $token = $this->factory->createToken();
             
-            //print_r($token);
-        
             if ( $token['response']['code'] != 200 ) {
                 
                 status_header("{$token['response']['code']}");
-                
                 $errors = json_decode($token['body']);
-                
                 \wp_send_json(array(
                     'errors' => $errors->errors[0]->message,
                 ));

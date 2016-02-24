@@ -26,6 +26,11 @@ class TwitterTokenFactory
         $this->headers['Authorization'] = "Basic $token";
     }
     
+    /**
+     * Create our bearer token
+     * 
+     * @return  array  The response from the twitter server
+     */
     public function createToken()
     {
         $request_body = array(
