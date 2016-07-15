@@ -28,8 +28,8 @@ class TwitterPlugin
 
     public function enqueue_scripts()
     {
-        //wp_enqueue_script('twitter', plugins_url('/js/ajax-twitter.js', __FILE__), array('jquery'), null, true);
+        wp_enqueue_script('twitter', plugins_url('/js/ajax-twitter.js', __FILE__), array('jquery'), null, true);
         //wp_enqueue_script('twittertxt', plugins_url('/node_modules/twitter-text/twitter-text.js', __FILE__), array('jquery'), null, true);
-        wp_enqueue_script('twitter', plugins_url('/js/tweets.js', __FILE__), array('jquery'), null, true);
+        //wp_enqueue_script('twitter', plugins_url('/js/tweets.js', __FILE__), array('jquery'), null, true);
     }
 }

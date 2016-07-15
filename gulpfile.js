@@ -14,9 +14,9 @@ var copy = [
 ]
 
 gulp.task('js', function () {
-  gulp.src(['./js/tweets.js', './node_modules/twitter-text/twitter-text.js'])
+  gulp.src(['./node_modules/twitter-text/twitter-text.js', './js/tweets.js'])
   .pipe(concat('ajax-twitter.js'))
-  .pipe(uglify())
+  //.pipe(uglify())
   .pipe(gulp.dest(dest + '/js'));
 });
 
