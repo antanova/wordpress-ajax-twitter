@@ -25,9 +25,10 @@ Version: 0.1.0
 */
 
 namespace Antanova\Wordpress;
+
 require_once 'autoloader.php';
 Autoloader::init(__DIR__);
 
-$config = include __DIR__ . '/config/credentials.php';
+$config = include __DIR__.'/config/credentials.php';
 
 new TwitterPlugin($config);

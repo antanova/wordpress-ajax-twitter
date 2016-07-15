@@ -2,25 +2,25 @@
 
 namespace Antanova\Wordpress;
 
-class Autoloader
+class autoloader
 {
     protected $prefix = 'Antanova\\Wordpress\\';
-    
+
     protected $path;
-    
-    static $instance;
-    
+
+    public static $instance;
+
     public static function init($path)
     {
         self::$instance = new self($path);
     }
-    
-    function __construct($path)
+
+    public function __construct($path)
     {
         $this->path = $path;
         spl_autoload_register(array($this, 'autoload'));
     }
-    
+
     public function autoload($class)
     {
         // Is it within our namespace?
@@ -28,9 +28,10 @@ class Autoloader
             return;
         }
         $className = substr($class, strpos($this->prefix, $class) + strlen($this->prefix));
-        
-        if (file_exists($this->path . DIRECTORY_SEPARATOR . $className . '.php')) {
-            require_once( $this->path . DIRECTORY_SEPARATOR . $className . '.php');
+        $className = strtr($className, '\\', '/');
+
+        if (file_exists($this->path.DIRECTORY_SEPARATOR.$className.'.php')) {
+            require_once $this->path.DIRECTORY_SEPARATOR.$className.'.php';
         }
     }
 }

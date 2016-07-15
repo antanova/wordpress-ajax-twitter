@@ -19,8 +19,10 @@
     $.getJSON(url)
     .done(function (data) {
       $.each(data, function (index, value) {
-        var txt = window.twttr.txt.autoLink(value.text, value.entities);
-        $self.append('<article class="tweet">' + txt + '</article>');
+        var link = 'https://twitter.com/' + value.user.screen_name + '/status/' + value.id_str;
+        var tweet = $('<article class="tweet">' + value.text + '</article>').attr('data-link', link);
+        tweet.on('click', onClick)
+        $self.append(tweet);
       })
     })
     .fail(function () {
@@ -42,6 +44,12 @@
     $el.removeClass('is-loading');
   }
   
+  function onClick(event) {
+    var url = $(event.target).data('link');
+    window.location.href = url;
+  }
+  
+  
   $.fn.twitify = function() {
     return this.each(tweets);
   }
@@ -52,7 +60,9 @@
   
   
 }(window, jQuery));
-
+$(function () {
+  $('#tweets').twitify();
+});
 /**
  * Use the above, for example, like this
  *
